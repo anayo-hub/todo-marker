@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes zoom-in-spin {
+  from {
+    transform: scale(0) rotate(270deg);
+
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shopping-item-checkbox {
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  height: 124px;
+  width: 124px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #b5b5b5;
+  transition: all 100ms ease-in;
+}
+
+.shopping-item-checkbox:focus {
+  outline: 4px solid #005bd3;
+  outline-offset: 4px;
+}
+
+.shopping-item {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.shopping-item-label {
+  font-family: "lucida Sans", "lucida Sans unicode", "sans-serif";
+  font-size: 48px;
+}
+
+.shopping-item-checkbox:focus .not-completed-icon circle {
+  fill: #d9d9d9;
+  stroke-dasharray: 0 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.shopping-item-checkbox:hover .not-completed-icon circle {
+  stroke-dasharray: 0 0;
+}
+
+.not-completed-icon,
+.completed-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.completed-icon {
+  animation-name: zoom-in-spin;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+
+.loading-spinner-icon {
+  width: 100px;
+  height: 100px;
+
+  animation-duration: 1000ms;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
